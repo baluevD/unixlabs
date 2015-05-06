@@ -82,7 +82,7 @@ void Daemon::process() {
 				page = ConfigReader::getPath() + "/index.html";
 
 			if (method.compare("GET ") && (access(page.c_str(), F_OK) != -1)) {
-				stream << "HTTP/1.1" << 404 << "error" << endl;
+				stream << "HTTP/1.1" << 200 << "Ok" << endl;
 				stream << "Content-Type: text/html; charset=UTF-8" << endl
 						<< endl;
 				std::string line;
@@ -91,11 +91,11 @@ void Daemon::process() {
 					stream << line;
 				}
 			} else {
-				stream << "HTTP/1.1" << 404 << "error" << endl;
+				stream << "HTTP/1.1" << 404 << "Not Found" << endl;
 				stream << "Content-Type: text/html; charset=UTF-8" << endl
 						<< endl;
 				stream
-						<< "<!DOCTYPE html><html><body><h1>page not found</h1></body></html>";
+						<< "<!DOCTYPE html><html><body><h1>Page not found</h1></body></html>";
 			}
 			write(_client_fd, stream.str().c_str(), stream.str().size());
 
