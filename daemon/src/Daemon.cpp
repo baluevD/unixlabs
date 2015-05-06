@@ -168,7 +168,7 @@ void Daemon::dispalyEvent(struct inotify_event *event) {
 		break;
 	case IN_CREATE | IN_ISDIR:
 		stream << "IN_CREATE | IN_ISDIR" << endl;
-//			_inotify_add_watch(inotify_fd, abs_pwd.str().c_str(), IN_ALL_EVENTS);
+		setWatcher(abs_pwd.str());
 		break;
 	case IN_DELETE | IN_ISDIR:
 		stream << "IN_DELETE | IN_ISDIR" << endl;
