@@ -27,6 +27,14 @@
 #include <iostream>
 #include <syslog.h>
 
+#include <ctype.h>
+#include <unistd.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <signal.h>
+#include <syslog.h>
+
 using namespace std;
 
 

@@ -61,11 +61,11 @@ void srv_print(const std::string &str, int type) {
 #else
 	switch (type) {
 		case LOG_ERR:
-		std::cerr << str;
+		std::cerr << str << endl;
 		break;
 		case LOG_INFO:
 		default:
-		std::cout << str;
+		std::cout << str << endl;
 		break;
 	}
 #endif
